@@ -858,6 +858,7 @@ var PACMAN = (function () {
         setState(WAITING);
         user.loseLife();
         if (user.getLives() > 0) {
+            console.log('show user option to invest in Biva');
             startLevel();
         }
     }
@@ -901,8 +902,8 @@ var PACMAN = (function () {
 
         ctx.fillStyle = "#FFFF00";
         ctx.font      = "14px BDCartoonShoutRegular";
-        ctx.fillText("Score: " + user.theScore(), 30, textBase);
-        ctx.fillText("Level: " + level, 260, textBase);
+        ctx.fillText("Pontos: " + user.theScore(), 30, textBase);
+        ctx.fillText("Nivel: " + level, 260, textBase);
     }
 
     function redrawBlock(pos) {
@@ -968,7 +969,7 @@ var PACMAN = (function () {
         } else if (state === WAITING && stateChanged) {            
             stateChanged = false;
             map.draw(ctx);
-            dialog("Press N to start a New game");            
+            dialog("Aperta N para iniciar");            
         } else if (state === EATEN_PAUSE && 
                    (tick - timerStart) > (Pacman.FPS / 3)) {
             map.draw(ctx);
